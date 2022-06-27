@@ -17,8 +17,7 @@ fun agoToTextM(minuts: Int): String {
     return printText + " назад"
 }
 
-fun main() {
-    val seconds: Int = 1260
+fun agoToText(seconds: Int = 0): String{
     val printText = when (seconds) {
         in 0..60 -> "только что"
         in 61..3600 -> agoToTextM(seconds / 60)
@@ -28,5 +27,10 @@ fun main() {
         //in 3 * 24 * 60 * 60 + 1..3 * 24 * 60 * 60 -> "Давно"
         else -> " в сети давно"
     }
+    return printText
+}
+fun main() {
+    val seconds = 1260
+    val printText = agoToText(seconds)
     println("был(а) " + printText)
 }
